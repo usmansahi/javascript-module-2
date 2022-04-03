@@ -7,7 +7,11 @@ Try to think of as many properties as you can!
 */
 
 let laptop = {
-    brand: "Lenovo",
-    screenSize: 13,
-    isTouchscreen: true,
+    brand: "Apple",
+    Model : "MacBook Pro",
+    screenSize: 13.5,
+    isTouchscreen: false,
+    Ram : "8Gb",
+    Hardrive : "128gb",
+
   };

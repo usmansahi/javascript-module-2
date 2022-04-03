@@ -9,4 +9,8 @@ var kitten = {
 };
 
 // YOUR CODE HERE
-
+const keys = Object.keys(kitten);
+ console.log(keys)
+keys.forEach((key , index) =>{
+    console.log(`${key}: ${kitten[key]}`);
+});

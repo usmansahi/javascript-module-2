@@ -156,4 +156,14 @@ body {
 	.navbar-brand > img {
 	   max-height: 80px;
 	}
+	.alreadyread{
+		background-color: green;
+	}
+	.IHaveNotReadThisBook {
+		background-color: red;
+		size: 20px;
+	}
+	img {
+
+	}
 }
