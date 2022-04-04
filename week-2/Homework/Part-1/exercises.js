@@ -13,26 +13,20 @@
  *      .....
  * </div>
  */
-function exerciseOne(arrayOfPeople) {
-  
+ function exerciseOne(arrayOfPeople) {
   let content = document.querySelector("#content");
-arrayOfPeople.forEach(person => {
-  var nameofperson = document.createElement("h1");
-  var jobtitle = document.createElement("h2");
-  nameofperson.textContent = person.name;
-  jobtitle.textContent = person.job;
-  content.appendChild(nameofperson);
-  content.appendChild(jobtitle);
-});
-  
+
+  arrayOfPeople.forEach((person) => {
+    const h1 = document.createElement("h1");
+    const h2 = document.createElement("h2");
+    h1.textContent = person["name"];
+    h2.textContent = person["job"];
+
+    content.appendChild(h1);
+    content.appendChild(h2);
+  });
 }
 
-let people = [
-  { name: "Chris", job: "Teacher" },
-  { name: "Joanna", job: "Student" },
-  { name: "Boris", job: "Prime Minister" }
-];
-exerciseOne(people);
 /**
  *
  * Create a list of shopping items. You should use an unordered list.
@@ -40,29 +34,18 @@ exerciseOne(people);
  * All of your HTML should go inside the Div tag with the id "content".
  *
  */
-function exerciseTwo(shoppinglist) {
-  //Write your code in here 
-  
+function exerciseTwo(shopping) {
+  //Write your code in here
   let content = document.querySelector("#content");
-  var ul = document.createElement("ul");
+  let ul = document.createElement("ul");
   content.appendChild(ul);
-  shoppinglist.forEach(shoppingitem =>{
-  var li = document.createElement("li");
-  li.textContent=shoppingitem;
-  ul.appendChild(li);
-
+  shopping.forEach((element) => {
+    ul.appendChild(document.createElement("li")).textContent = element;
   });
-  
-  
 }
-
-let shoppingitems = ["Milk", "Break", "Eggs", "A Dinosaur", "Cake", "Sugar", "Tea"];
-
-exerciseTwo(shoppingitems);
 
 /**
     I'd like to display my three favorite books inside a nice webpage!
-
     const books = [
         {
             title: "The Design of Everyday Things",
@@ -80,40 +63,39 @@ exerciseTwo(shoppingitems);
             alreadyRead: true
         }
     ];
-
- /** 
     Iterate through the array of books.
     - For each book, create a <p> element with the book title and author and append it to the page.
     - Use a <ul> and <li> to display the books.
     - Add an <img> to each book that links to a URL of the book cover.
     - Change the style of the book depending on whether you have read it (green) or not (red).
-
-    The end result should look something like this:
+    The end result should look something like this: https://hyf-js2-week1-makeme-ex1-demo.herokuapp.com/
 **/
 function exerciseThree(books) {
-  
   //Write your code in here
   let content = document.querySelector("#content");
-  const list = document.createElement("ul");
-  content.appendChild(list)
+  let ul = document.createElement("ul");
+  content.appendChild(ul);
+  ul.className = "flex";
 
-  books.forEach(mybook =>{
-    const listitem = document.createElement("li")
-    const paragraph =document.createElement("p");
-    const image = document.createElement("img");
-    image.src =mybook.url;
+  books.forEach((book, index) => {
+    let li = document.createElement("li");
+    ul.appendChild(li);
 
-    paragraph.textContent = mybook.title + "-" + mybook.author;
-    if (mybook.alreadyRead){
-      listitem.classList.add("alreadyread");
-    }else{
-      listitem.classList.add("IHaveNotReadThisBook")
+    let p = document.createElement("p");
+    li.appendChild(p);
+    p.textContent = book.title + " - " + book.author;
+    p.className = "padding";
+
+    let img = document.createElement("img");
+    img.src = `./img${index + 1}.jpeg`;
+    li.appendChild(img);
+    img.className = "padding";
+    if (book.alreadyRead) {
+      li.className = "read";
+    } else {
+      li.className = "noRead";
     }
-    listitem.appendChild(paragraph);
-    listitem.appendChild(image);
-    list.appendChild(listitem);
-
-  })
+  });
 }
 
 //
@@ -126,28 +108,34 @@ function exerciseThree(books) {
 //
 //
 
+let people = [
+  { name: "Chris", job: "Teacher" },
+  { name: "Joanna", job: "Student" },
+  { name: "Boris", job: "Prime Minister" },
+];
 
+exerciseOne(people);
 
+let shopping = ["Milk", "Break", "Eggs", "A Dinosaur", "Cake", "Sugar", "Tea"];
 
+exerciseTwo(shopping);
 
-
-const mybooks = [
+const books = [
   {
     title: "The Design of Everyday Things",
     author: "Don Norman",
     alreadyRead: false,
-    url :'https://lawsonblake.com/content/images/2020/12/Design-of-Everyday-Things-1920x1280-min.png'
   },
   {
     title: "The Most Human Human",
     author: "Brian Christian",
-    alreadyRead: true
+    alreadyRead: true,
   },
   {
     title: "The Pragmatic Programmer",
     author: "Andrew Hunt",
-    alreadyRead: true
-  }
+    alreadyRead: true,
+  },
 ];
 
-exerciseThree(mybooks);
+exerciseThree(books);

@@ -150,20 +150,32 @@ body {
 #greenBtn {
 	background: #87ca8a
 }
+.read {
+	background-color: green;
+	width: 22rem;
+	height: 21.5rem;
+  }
+  .noRead {
+	background-color: red;
+	width: 22rem;
+	height: 21.5rem;
+  }
+  .flex {
+	list-style: none;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+  }
+  .padding {
+	padding-left: 0.9rem;
+  }
 
 @media screen and (min-width: 992px) {
 
 	.navbar-brand > img {
 	   max-height: 80px;
 	}
-	.alreadyread{
-		background-color: green;
-	}
-	.IHaveNotReadThisBook {
-		background-color: red;
-		size: 20px;
-	}
-	img {
+	
 
-	}
+	
 }
