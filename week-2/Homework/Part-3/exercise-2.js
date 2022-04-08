@@ -5,13 +5,13 @@ Define a method "makeFriend" to add a new friend to her list.
 */
 
 let person = {
-  name: "Alice",
-  friends: ["John", "Nina"],
-  makeFriend: function(Friend) {
-    return this.friends.push(Friend)
+    name: "Alice",
+    friends: ["John", "Nina"],
+    makeFriend :(friend) =>{
+    return this.friends.push(friend) ;
   }
-};
-  
+  };
+   
   /*
   DO NOT EDIT ANYTHING BELOW THIS LINE
   */
