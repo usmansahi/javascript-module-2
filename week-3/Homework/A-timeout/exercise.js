@@ -5,11 +5,11 @@ EXERCISE 1
 Task 1
 Using setTimeout, change the background colour of the page after 5 seconds (5000 milliseconds). Hint: try searching for setTimeout. (https://www.w3schools.com/jsref/met_win_settimeout.asp)
 */
-// const timeout = setTimeout(colorchange , 5000);
-// function colorchange(){
-//     document.getElementById("main");
-//     document.body.style.backgroundColor ="#00cc99";
-// }
+const timeout = setTimeout(colorchange , 5000);
+function colorchange(){
+    document.getElementById("main");
+    document.body.style.backgroundColor ="#ff99bb";
+}
 
 
 

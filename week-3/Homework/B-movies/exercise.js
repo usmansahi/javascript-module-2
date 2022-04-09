@@ -8,13 +8,7 @@ Create a function called "showMovies" that
 - for each movie, it creates a <p> element with the movie title and director and append it to the #all-movies div.
 - it sets the innerText of the #movies-number element to the total number of the movies in the array "movies"
 
-Task 2
-Amend your function above to only show movies after 1 second. Remember to use setTimeout to achieve that
-Create a new function called "addMovie"
-- it receives a movie object as an argument - your can create a new object for your favorite movie following using the "myMovies" objects as a guide 
-- it adds the new movie to the list of movies after 2 seconds. Remember to setTimeout to achieve that
-Call addMovies to add the new movie to the list and then showMovies to see the movies added on the screen.
-How many movies can you see on your page?
+
 
 Task 3
 Can you make sure the new movie you just added is showing on the screen? 
@@ -57,11 +51,55 @@ var movies = [
     haveWatched: false,
   },
 ];
-
+const allmovies = document.querySelector("#all-movies");
+const numberofspan = document.querySelector("#movies-number")
 // create showMovies function
+function showMovies(){
+  movies.forEach( movie =>{
+    const paragraph = document.createElement("p");
+    allmovies.appendChild(paragraph)
+    paragraph.textContent= `${movie.title} " " ${movie.director}`;
+  })
+  numberofspan.innerText =movies.length
 
+}
 
 // create a new movie object for your favorite movie
-
-
+var myMovie =[
+  {
+    title : "catch me if u can",
+    director: "Steven Spielberg",
+    haveWatched: "yes"
+  },
+  {
+    title : "wall street",
+    director : "Oliver Stone",
+    haveWatched : "yes"
+  }
+]
+/*Task 2
+Amend your function above to only show movies after 1 second. Remember to use setTimeout to achieve that
+Create a new function called "addMovie"
+- it receives a movie object as an argument - your can create a new object for your favorite movie following using the "myMovies" objects as a guide 
+- it adds the new movie to the list of movies after 2 seconds. Remember to setTimeout to achieve that
+Call addMovies to add the new movie to the list and then showMovies to see the movies added on the screen.
+How many movies can you see on your page? */
 // create addMovies function
+
+const addMovie = (movie) => {
+  //console.log(movies);
+  setTimeout(() => {
+    movies.push(movie);
+    //console.log(movies);
+    //showMovies(movies);
+    addMovie(myMovie);
+  }, 2000);
+};
+
+setTimeout(() => {
+  showMovies(movies);
+}, 1000);
+
+setTimeout(() => {
+  addMovie(myMovie);
+}, 2000);
