@@ -1,22 +1,29 @@
 // Write your code here
-var slider_img= document.querySelector('.slider-img');
-var images = ['1.png','2.png'];
-var i = 0;
-function forward(){
-    // alert("us")
-    if(i <images.length -1){
-        i++;
-    }
-	
-   return setimages(); 
-}
-function back(){
-   
 
-    if(i <= 0) i = images.length;	
-	i--;
-    return setimages();
-}   
-function setimages(){
-    return slider_img.setAttribute('src', "images/"+images[i]);
+var images = ['1.png','2.png','4.jpeg'];
+
+var bckbtn=document.getElementById("backbutton");
+bckbtn.addEventListener("click", backfunction);
+
+let forwardbtn = document.getElementById("forwardbutton");
+forwardbtn.addEventListener('click' , forwardfunction);
+
+
+
+
+
+
+
+
+
+
+function forwardFun(){
+var imgcontainer = document.querySelector('.slider-img').src ;
+var imgindex = images.indexOf(imgcontainer);
+console.log(imgindex)
+
+}
+
+function backwardFun(){
+
 }
