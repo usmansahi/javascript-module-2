@@ -51,32 +51,26 @@ var movies = [
     haveWatched: false,
   },
 ];
-const allmovies = document.querySelector("#all-movies");
-const numberofspan = document.querySelector("#movies-number")
-// create showMovies function
-function showMovies(){
-  movies.forEach( movie =>{
-    const paragraph = document.createElement("p");
-    allmovies.appendChild(paragraph)
-    paragraph.textContent= `${movie.title} " " ${movie.director}`;
-  })
-  numberofspan.innerText =movies.length
+const allMovies = document.querySelector("#all-movies");
+const moviesNumberSpan = document.querySelector("#movies-number");
 
+function showMovies(movies) {
+  movies.forEach((movie) => {
+    let pElement = document.createElement("p");
+    allMovies.appendChild(pElement);
+    pElement.textContent = `${movie.title} -- direct by -- ${movie.director}`;
+  });
+  moviesNumberSpan.innerText = movies.length;
 }
 
 // create a new movie object for your favorite movie
-var myMovie =[
-  {
-    title : "catch me if u can",
-    director: "Steven Spielberg",
-    haveWatched: "yes"
-  },
-  {
-    title : "wall street",
-    director : "Oliver Stone",
-    haveWatched : "yes"
-  }
-]
+const myMovie = {
+  title: "catch me if you can",
+  director: "will",
+  type: "drama",
+  haveWatched: true,
+};
+
 /*Task 2
 Amend your function above to only show movies after 1 second. Remember to use setTimeout to achieve that
 Create a new function called "addMovie"
@@ -86,20 +80,16 @@ Call addMovies to add the new movie to the list and then showMovies to see the m
 How many movies can you see on your page? */
 // create addMovies function
 
-const addMovie = (movie) => {
-  //console.log(movies);
-  setTimeout(() => {
-    movies.push(movie);
-    //console.log(movies);
-    //showMovies(movies);
-    addMovie(myMovie);
-  }, 2000);
-};
+function addMovie(myMovie) {
+  movies.push(myMovie);
+  let Element = document.createElement("p");
+  allMovies.appendChild(Element);
 
-setTimeout(() => {
-  showMovies(movies);
-}, 1000);
+  Element.textContent = `${movies[movies.length - 1].title} -- direct by -- ${
+    movies[movies.length - 1].director
+  }`;
+  moviesNumberSpan.innerText = movies.length;
+}
 
-setTimeout(() => {
-  addMovie(myMovie);
-}, 2000);
+setTimeout(() => addMovie(myMovie), 2000);
+setTimeout(() => showMovies(movies), 1000);
