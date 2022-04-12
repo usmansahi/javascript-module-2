@@ -11,11 +11,26 @@ body{
 .container{
     display: flex;
     flex-direction: column;
+    background-color: honeydew;
 }
 
 
 button{
     border-radius: 12px;
+    color: indianred;
+    display:inline-block;
+    padding: 10px 24px;
+    cursor: pointer;
+   font-size: 16px;
+   display: inline-block;
    
 }
 
+#idHeading{
+    background-color: indianred;
+    
+}
+h1{
+    align-items: center;
+    margin-left: 30pt;
+}
